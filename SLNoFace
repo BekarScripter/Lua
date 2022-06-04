@@ -1,1 +1,1 @@
-game.workspace.ShadowBeLikeLight.Head.Default:Destroy
+game:GetService("Workspace").ShadowBeLikeLight.Head.Default.Destroy()
