@@ -1,0 +1,57 @@
+if game.PlaceId == 4779613061 then
+	local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+	local Window = Library.CreateLib("South London 2", "Sentinel")
+	-- LightTheme 
+	-- DarkTheme
+	-- GrapeTheme
+	-- BloodTheme
+	-- Ocean
+	-- Midnight
+	-- Sentinel
+	-- Synapse
+	
+	
+	local Misc = Window:NewTab("Misc")
+	
+	--Gun Mods
+	local GunMods = Window:NewTab("Gun Mods")
+	local GunMods = GunMods:NewSection("Gun Mods")
+	GunMods:NewButton("Inf ammo", "Gives you Inf Ammo", function() -- 500 (MaxValue) | 0 (MinValue)
+		for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+			if v:IsA("Tool") then
+				v.Stats.ClipSize.Value = 1000
+				v.Stats.MaxAmmo.Value = 1000
+				print("Done")
+		end
+	end
+end)
+
+
+
+	--Player Stuff
+
+	local Player = Window:NewTab("Player")
+	local Player = Player:NewSection("Player Mods")
+	Player:NewButton("Inf Stamina / could be laggy", "Gives you Inf Stamina", function(v)
+		game.Players.LocalPlayer.Valuestats.Stamina.Value = 1e+18
+	end)
+	Player:NewButton("Inf No Hunger / could be laggy", "Gives you Inf No Hunger / you get no hunger", function(v)
+		game.Players.LocalPlayer.Valuestats.Hunger.Value = 1e+18
+	end)
+	Player:NewSlider("Walkspeed", "Changes your Walkspeed", 500, 0, function(v) -- 500 (MaxValue) | 0 (MinValue)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+	end)
+	Player:NewSlider("JumpPower", "Changes your JumpPower", 500, 0, function(v) -- 500 (MaxValue) | 0 (MinValue)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+	end)
+	local RemoveStuff = Window:NewTab("Remove Stuff")
+	local RemoveStuff = RemoveStuff:NewSection("Remove Face & Tattoos")
+	RemoveStuff:NewButton("Remove", "Removes your Face & Tattoos", function()
+		for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
+			if v:IsA("Decal") then
+			v:Destroy()
+		end
+	end
+	end)
+end
+--chilledgame.Players.LocalPlayer.Character.Head.chilled:Destroy()
